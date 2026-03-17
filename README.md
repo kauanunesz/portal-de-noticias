@@ -1,1 +1,1 @@
-# portal-de-not-cias
+# portal-de-notícias
