@@ -11,13 +11,20 @@
         <div class="info">
             <div class="box">
                 <div class="titulo">
-                    <h1 style="color: white">News</h1>
-                    <h1 style="color: rgb(47, 115, 224);">Wire</h1>
+                    <h1 class="news">News</h1>
+                    <h1 class="wire">Wire</h1>
                 </div>
+                <p>Portal de notícias</p>
+                <p>Acesse o painel para publicar e </p>
+                <p>gerenciar as notícias do portal</p>
             </div>
         </div>
         <div class="linha-vertical"></div>
-        <div class="form-box"></div>
+        <div class="form-box">
+            <form action="" method="post">
+                
+            </form>
+        </div>
     </div>
 </body>
 </html>

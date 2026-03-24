@@ -25,6 +25,9 @@ div.form-box{
     background-color: #010a20;
     width: 60vw;
     height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .linha-vertical {
@@ -38,4 +41,30 @@ div.form-box{
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .news, .wire{
+    font-size: 60px;
+  }
+  .news{
+    color: white;
+  }
+
+  .wire{
+    color: rgb(47, 115, 224)
+  }
+
+  .box{
+    /* background-color: aqua; */
+    height: 250px;
+  }
+
+  p{
+    color: aliceblue;
+    font-size: 20px;
+  }
+  form{
+    background-color: aquamarine;
+    height: 250px;
   }
