@@ -5,4 +5,5 @@
         $env['DB_USER'],
         $env['DB_PASS']
     );
+    // var_dump($env);
 ?>
