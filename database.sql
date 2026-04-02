@@ -30,7 +30,7 @@ CREATE TABLE noticia (
     criado_em DATETIME DEFAULT CURRENT_TIMESTAMP,
     atualizado_em DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (id_autor) REFERENCES user(id),
-    FOREIGN KEY (id_categoria) REFERENCES categorias(id)
+    FOREIGN KEY (id_categoria) REFERENCES categoria(id)
 );
 
 CREATE TABLE salvos (
