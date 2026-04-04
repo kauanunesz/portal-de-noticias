@@ -35,5 +35,33 @@
 //         }
 //         echo "O array percorreu {$contador} produtos";  
 
+// $nomes = ["Ana", "Beatriz", "Carlos"];
+// $nomes[] = "Fábio";
+// foreach ($nomes as $nome)
+//     {
+//         echo $nome . " ";
+//     }
+// echo $nomes[1];
 
+// Percorra só alunos com status "ativo"
+// Para cada um, imprima o primeiro nome apenas — não o nome completo
+// Se a nota for abaixo de 5, imprima " — Reprovado" ao lado. Caso contrário, " — Aprovado"
+// No final, imprima quantos ativos foram percorridos
+// $alunos = [
+//     ["nome" => "Ana Silva", "nota" => 8.5, "status" => "ativo"],
+//     ["nome" => "Carlos Mendes", "nota" => 4.0, "status" => "ativo"],
+//     ["nome" => "Beatriz Lima", "nota" => 7.0, "status" => "inativo"],
+//     ["nome" => "Rafael Costa", "nota" => 9.5, "status" => "ativo"],
+// ];
+
+// $quantidade = 0;
+// foreach($alunos as $aluno)
+//     {
+//         if ($aluno["status"] != "ativo") continue;
+//         $nome = explode(" ", $aluno["nome"]);
+//         $primeiroNome = array_shift($nome);
+//         echo $primeiroNome . ($aluno["nota"] < 5 ? " - Reprovado<br>" : " -  Aprovado<br>");
+//         $quantidade++;
+//         }
+//         echo $quantidade . " alunos percorridos";
 ?>
