@@ -4,7 +4,7 @@ class Usuario
     private PDO $db;
     public function __construct(PDO $db)
     {
-        $this->db = $db; 
+        $this->db = $db;
     }
     public function buscarPorEmail($email)
     {
