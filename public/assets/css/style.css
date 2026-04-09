@@ -65,6 +65,8 @@ div.form-box{
     font-size: 20px;
   }
   form{
+    display: flex;
+    flex-direction: column;
     background-color: aquamarine;
     height: 250px;
   }
