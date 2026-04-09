@@ -10,20 +10,25 @@ class AuthController
 
     public function cadastro()
     {
-        if (empty(trim($_POST['nome'])) || empty(trim($_POST['email'])) || empty(trim($_POST['senha'])) || empty(trim($_POST['confirmarSenha']))) 
+        $campos = ['nome', 'email', 'senha', 'confirmarSenha'];
+        foreach ($campos as $campo)
+        {
+            if (empty(trim($_POST[$campo] ?? '')))
         {
             echo "Campos vazios. Preencha os campos corretamente!";
             return;
         }
+        }
         $nome = trim($_POST['nome']);
         $email = trim($_POST['email']);
         $senha = trim($_POST['senha']);
-        $confirmarSenha = trim($_POST['confirmarSenha']);
-        if ($senha === $confirmarSenha)
+
+        if ($senha !== trim($_POST['confirmarSenha']))
         {
-            $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+            echo "As senhas não coincidem. ";
+            return;
         }
-        $this->model->criar($nome, $email, $senhaHash, 'leitor');
+        $this->model->criar($nome, $email, password_hash($senha, PASSWORD_DEFAULT), 'leitor');
     }
     public function login()
     {
@@ -37,7 +42,39 @@ class AuthController
         $usuario = $this->model->buscarPorEmail($email);
         if ($usuario)
         {
-            
+            if (password_verify($senha, $usuario['senha']))
+            {
+                session_start();
+                $_SESSION['id'] = $usuario['id'];
+                $_SESSION['nome'] = $usuario['nome'];
+                $_SESSION['perfil'] = $usuario['perfil'];
+            }
+            else
+            {
+                echo "Credenciais inválidas. Preencha corretamente, senão Israel lhe espancará";
+                return;
+            }
+        }
+        else
+        {
+            echo "Credenciais inválidas. Preencha corretamente, senão Israel lhe espancará";
+            return;
+        }
+        $perfil = $usuario['perfil'];
+        if($perfil === 'admin')
+        {
+            header("Location: ./view/admin/ex.php");
+            exit;
+        }
+        elseif ($perfil === 'redator')
+        {
+            header("Location: ./view/redator/ex.php");
+            exit;
+        }
+        else
+        {
+            header("Location: /");
+            exit;
         }
     }
 }
