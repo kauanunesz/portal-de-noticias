@@ -40,33 +40,27 @@ class AuthController
         $email = trim($_POST['email']);
         $senha = trim($_POST['senha']);
         $usuario = $this->model->buscarPorEmail($email);
-        if ($usuario)
-        {
-            if (password_verify($senha, $usuario['senha']))
-            {
-                session_start();
-                $_SESSION['id'] = $usuario['id'];
-                $_SESSION['nome'] = $usuario['nome'];
-                $_SESSION['perfil'] = $usuario['perfil'];
-            }
-            else
-            {
-                echo "Credenciais inválidas. Preencha corretamente, senão Israel lhe espancará";
-                return;
-            }
-        }
-        else
+        if (!$usuario)
         {
             echo "Credenciais inválidas. Preencha corretamente, senão Israel lhe espancará";
             return;
         }
-        $perfil = $usuario['perfil'];
-        if($perfil === 'admin')
+        if (!password_verify($senha, $usuario['senha']))
+        {
+            echo "Credenciais inválidas. Preencha corretamente, senão Israel lhe espancará";
+            return;
+        }
+        session_start();
+        $_SESSION['id'] = $usuario['id'];
+        $_SESSION['nome'] = $usuario['nome'];
+        $_SESSION['perfil'] = $usuario['perfil'];
+        // $perfil = $usuario['perfil'];
+        if($usuario['perfil'] === 'admin')
         {
             header("Location: ./view/admin/ex.php");
             exit;
         }
-        elseif ($perfil === 'redator')
+        elseif ($usuario['perfil'] === 'redator')
         {
             header("Location: ./view/redator/ex.php");
             exit;
