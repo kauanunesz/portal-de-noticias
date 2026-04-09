@@ -32,12 +32,15 @@ if (isset($_SESSION['id'])) {
         </div>
         <div class="linha-vertical"></div>
         <div class="form-box">
-            <form action="/index.php?action=login" method="post">
+            <form action="/index.php?pagina=login" method="post" class="card">
                 <label for="email">E-mail: </label>
-                <input type="email" name="email" id="email">
+                <input type="email" name="email" id="email" placeholder="seuemail@gmail.com" required>
                 <label for="senha">Senha: </label>
-                <input type="password" name="senha" id="senha">
+                <input type="password" name="senha" id="senha" placeholder="Sua senha" required>
                 <button type="submit">Entrar no Painel</button>
+                <?php 
+                    
+                ?>
             </form>
         </div>
     </div>
