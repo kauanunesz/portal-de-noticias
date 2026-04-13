@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="../../../public/assets/css/style.css">
 </head>
 <body>
@@ -21,15 +21,16 @@
         </div>
         <div class="linha-vertical"></div>
         <div class="form-box">
-            <form action="/htdocs/portal-de-noticias/index.php?pagina=login" method="post" class="card">
+            <form action="/index.php?pagina=login" method="post" class="card-cadastro">
+                <label for="nome">Nome: </label>
+                <input type="email" name="email" id="email" placeholder="Seu nome: " required>
                 <label for="email">E-mail: </label>
                 <input type="email" name="email" id="email" placeholder="seuemail@gmail.com" required>
                 <label for="senha">Senha: </label>
                 <input type="password" name="senha" id="senha" placeholder="Sua senha" required>
+                <label for="senha">Senha: </label>
+                <input type="password" name="confirmarSenha" id="confirmarSenha" placeholder="Confirme sua senha: " required>
                 <button type="submit">Entrar no Painel</button>
-                <?php 
-                    
-                ?>
             </form>
         </div>
     </div>

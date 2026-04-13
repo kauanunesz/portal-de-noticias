@@ -76,9 +76,21 @@ div.form-box{
     filter: drop-shadow(0 10px 20px #00000035);
     font-family: 'Courier New', Courier, monospace;
   }
+  form.card-cadastro{
+    display: flex;
+    flex-direction: column;
+    background-color: #1B2A41;
+    align-items: center;
+    height: 350px;
+    width: 500px;
+    padding: 20px;
+    border-radius: 10px;
+    filter: drop-shadow(0 10px 20px #00000035);
+    font-family: 'Courier New', Courier, monospace;
+  }
   label
   {
-    margin-top: 35px;
+    margin-top: 15px;
     margin-bottom: 3px;
     color: #AFC3D6;
     align-self: self-start;

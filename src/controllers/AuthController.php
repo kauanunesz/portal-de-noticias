@@ -56,10 +56,10 @@ class AuthController
         switch ($usuario['perfil'])
         {
         case 'admin':
-            header("Location: ./view/admin/ex.php");
+            header("Location: /src/view/admin/ex.php");
             exit;
         case 'redator':
-            header("Location: ./view/redator/ex.php");
+            header("Location: /src/view/redator/ex.php");
             exit;
         case 'leitor':
             header("Location: /");
