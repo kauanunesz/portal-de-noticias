@@ -4,7 +4,7 @@ require_once './config/Database.php';
 require_once './src/models/ModelUsuario.php';
 require_once './src/controllers/AuthController.php';
 
-$pagina = $_GET['pagina' ?? ''];
+$pagina = $_GET['pagina'] ?? '';
 switch ($pagina)
 {
     case 'login': 
@@ -20,7 +20,7 @@ switch ($pagina)
         }
         else
         {
-            include '/xampp/htdocs/portal-de-noticias/src/views/auth/login.php';
+            include './src/views/auth/login.php';
         }
         break;
     case 'cadastro':        
@@ -35,10 +35,10 @@ switch ($pagina)
         }
         else
         {
-            include '/htdocs/portal-de-noticias/src/views/auth/login.php';
+            include './src/views/auth/login.php';
         }
         break;
     default: 
-        include '/htdocs/portal-de-noticias/src/views/auth/login.php';
+        include './src/views/auth/login.php';
 }
 ?>

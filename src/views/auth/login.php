@@ -21,7 +21,7 @@
         </div>
         <div class="linha-vertical"></div>
         <div class="form-box">
-            <form action="/htdocs/portal-de-noticias/index.php?pagina=login" method="post" class="card">
+            <form action="index.php?pagina=login" method="post" class="card">
                 <label for="email">E-mail: </label>
                 <input type="email" name="email" id="email" placeholder="seuemail@gmail.com" required>
                 <label for="senha">Senha: </label>
