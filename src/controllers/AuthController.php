@@ -14,18 +14,17 @@ class AuthController
         foreach ($campos as $campo)
         {
             if (empty(trim($_POST[$campo] ?? '')))
-        {
-            echo "Campos vazios. Preencha os campos corretamente!";
-            return;
-        }
+            {
+                echo "Campos vazios. Preencha os campos corretamente!";
+                return;
+            }
         }
         $nome = trim($_POST['nome']);
         $email = trim($_POST['email']);
         $senha = trim($_POST['senha']);
-
         if ($senha !== trim($_POST['confirmarSenha']))
         {
-            echo "As senhas não coincidem. ";
+            echo "As senhas não coincidem.";
             return;
         }
         $this->model->criar($nome, $email, password_hash($senha, PASSWORD_DEFAULT), 'leitor');
@@ -50,24 +49,23 @@ class AuthController
             echo "Credenciais inválidas. Preencha corretamente, senão Israel lhe espancará";
             return;
         }
-        session_start();
+        // session_start();
         $_SESSION['id'] = $usuario['id'];
         $_SESSION['nome'] = $usuario['nome'];
         $_SESSION['perfil'] = $usuario['perfil'];
-        // $perfil = $usuario['perfil'];
-        if($usuario['perfil'] === 'admin')
+        switch ($usuario['perfil'])
         {
+        case 'admin':
             header("Location: ./view/admin/ex.php");
             exit;
-        }
-        elseif ($usuario['perfil'] === 'redator')
-        {
+        case 'redator':
             header("Location: ./view/redator/ex.php");
             exit;
-        }
-        else
-        {
+        case 'leitor':
             header("Location: /");
+            exit;
+        default:
+            header("Location: /index.php");
             exit;
         }
     }
