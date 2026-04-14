@@ -21,9 +21,9 @@
         </div>
         <div class="linha-vertical"></div>
         <div class="form-box">
-            <form action="/index.php?pagina=login" method="post" class="card-cadastro">
+            <form action="/index.php?pagina=cadastro" method="post" class="card-cadastro">
                 <label for="nome">Nome: </label>
-                <input type="email" name="email" id="email" placeholder="Seu nome: " required>
+                <input type="text" name="nome" id="nome" placeholder="Seu nome: " required>
                 <label for="email">E-mail: </label>
                 <input type="email" name="email" id="email" placeholder="seuemail@gmail.com" required>
                 <label for="senha">Senha: </label>
