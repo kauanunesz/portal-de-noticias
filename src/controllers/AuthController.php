@@ -28,6 +28,9 @@ class AuthController
             return;
         }
         $this->model->criar($nome, $email, password_hash($senha, PASSWORD_DEFAULT), 'leitor');
+        $_SESSION['mensagem'] = 'Cadastro realizado com sucesso!';
+        header("Location: /portal-de-noticias/index.php?pagina=login");
+        exit;
     }
     public function login()
     {
@@ -56,13 +59,13 @@ class AuthController
         switch ($usuario['perfil'])
         {
         case 'admin':
-            header("Location: /src/view/admin/ex.php");
+            header("Location: /portal-de-noticias/index.php?pagina=admin");
             exit;
         case 'redator':
-            header("Location: /src/view/redator/ex.php");
+            header("Location: /portal-de-noticias/index.php?pagina=redator");
             exit;
         case 'leitor':
-            header("Location: /");
+            header("Location: /portal-de-noticias/index.php?pagina=leitor");
             exit;
         default:
             header("Location: /index.php");

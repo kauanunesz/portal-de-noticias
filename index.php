@@ -20,27 +20,25 @@ switch ($pagina)
         }
         else
         {
-            include './src/views/auth/login.php';
+            include 'login.php';
         }
         break;
     case 'cadastro':        
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST')
-        // {
-        //     try {
-        //         $controller = new AuthController();
-        //         $controller->cadastro();
-        //     } catch (\Throwable $e) {
-        //         $e->getMessage();
-        //     }
-        // }
-        // else
-        // {
-        //     include './src/views/auth/login.php';
-        // }
-        // break;
-        var_dump($_SERVER['REQUEST_METHOD'], $_POST);
-        die();
+        if ($_SERVER['REQUEST_METHOD'] === 'POST')
+        {
+            try {
+                $controller = new AuthController();
+                $controller->cadastro();
+            } catch (\Throwable $e) {
+                $e->getMessage();
+            }
+        }
+        else
+        {
+            include 'login.php';
+        }
+        break;
     default: 
-        include './src/views/auth/login.php';
+        include 'login.php';
 }
 ?>

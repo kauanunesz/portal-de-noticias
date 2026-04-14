@@ -27,9 +27,10 @@
                 <label for="senha">Senha: </label>
                 <input type="password" name="senha" id="senha" placeholder="Sua senha" required>
                 <button type="submit">Entrar no Painel</button>
-                <?php 
-                    
-                ?>
+                <?php if (!empty($_SESSION['mensagem'])): ?>
+                <p><?= htmlspecialchars($_SESSION['mensagem']) ?></p>
+                <?php unset($_SESSION['mensagem']); ?>
+                <?php endif; ?>
             </form>
         </div>
     </div>
